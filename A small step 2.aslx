@@ -16,7 +16,7 @@
     <pov type="object">player</pov>
     <roomenter type="script">
       DecreaseObjectCounter (player, "Fuel")
-      player.Health level = player.Health level - 95
+      player.Health level = player.Health level - 1
     </roomenter>
     <start type="script">
     </start>
@@ -29,7 +29,7 @@
     <object name="player">
       <inherit name="editor_object" />
       <inherit name="editor_player" />
-      <isroom />
+      <isroom type="boolean">false</isroom>
       <statusattributes type="stringdictionary">
         <item>
           <key>Fuel</key>
@@ -103,6 +103,19 @@
     <inherit name="editor_room" />
     <description><![CDATA[{img:heic1608a.jpg}<br/>Something went wrong. Your goal was to jump to Alpha Centauri and back, but apparently the Jump drive doesn't work exactly like you have expected. You find yourself inside of The Bubble nebula, also known as NGC 7635, more than 9000 light years from home.]]></description>
     <usedefaultprefix type="boolean">false</usedefaultprefix>
+    <exit name="RandomExit" alias="random direction" to="Earth orbit">
+      <runscript />
+      <script type="script">
+        l = NewList()
+        foreach (obj, AllRooms()) {
+          if (obj.visited = false) {
+            list add (l, obj)
+          }
+        }
+        jumpTarget = PickOneObject (l)
+        MoveObject (player, jumpTarget)
+      </script>
+    </exit>
   </object>
   <command>
     <pattern>place beacon</pattern>
@@ -125,4 +138,20 @@
       }
     ]]></script>
   </turnscript>
+  <object name="Sample place 1">
+    <inherit name="editor_room" />
+    <beacon type="boolean">false</beacon>
+  </object>
+  <object name="Sample place 2">
+    <inherit name="editor_object" />
+    <room />
+    <isroom />
+    <beacon type="boolean">false</beacon>
+  </object>
+  <object name="Sample place 3">
+    <inherit name="editor_object" />
+    <room />
+    <isroom />
+    <beacon type="boolean">false</beacon>
+  </object>
 </asl>
