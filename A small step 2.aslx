@@ -3,6 +3,7 @@
   <include ref="English.aslx" />
   <include ref="Core.aslx" />
   <game name="A small step">
+    <inherit name="theme_retro" />
     <gameid>68b5edc1-0a55-40aa-a10f-bda8209ef522</gameid>
     <version>1.0</version>
     <firstpublished>2018</firstpublished>
@@ -137,7 +138,7 @@
   <turnscript>
     <enabled />
     <script><![CDATA[
-      if (player.Health level <= 0) {
+      if (player.Health level <= 0 or player.Fuel <= 0) {
         finish
         msg ("You died T_T")
       }
