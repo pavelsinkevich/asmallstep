@@ -154,4 +154,76 @@
     <isroom />
     <beacon type="boolean">false</beacon>
   </object>
+  <object name="Sample place 4">
+    <inherit name="editor_object" />
+    <room />
+    <isroom />
+    <beacon type="boolean">false</beacon>
+  </object>
+  <object name="Sample place 5">
+    <inherit name="editor_object" />
+    <room />
+    <isroom />
+    <beacon type="boolean">false</beacon>
+  </object>
+  <object name="Sample place 6">
+    <inherit name="editor_object" />
+    <room />
+    <isroom />
+    <beacon type="boolean">false</beacon>
+  </object>
+  <object name="Sample place 7">
+    <inherit name="editor_object" />
+    <room />
+    <isroom />
+    <beacon type="boolean">false</beacon>
+  </object>
+  <object name="Sample place 8">
+    <inherit name="editor_object" />
+    <room />
+    <isroom />
+    <beacon type="boolean">false</beacon>
+  </object>
+  <object name="Sample place 9">
+    <inherit name="editor_object" />
+    <room />
+    <isroom />
+    <beacon type="boolean">false</beacon>
+  </object>
+  <object name="Sample place 10">
+    <inherit name="editor_object" />
+    <room />
+    <isroom />
+    <beacon type="boolean">false</beacon>
+  </object>
+  <object name="Sample place 11">
+    <inherit name="editor_object" />
+    <room />
+    <isroom />
+    <beacon type="boolean">false</beacon>
+  </object>
+  <object name="Sample place 12">
+    <inherit name="editor_object" />
+    <room />
+    <isroom />
+    <beacon type="boolean">false</beacon>
+  </object>
+  <object name="Sample place 13">
+    <inherit name="editor_object" />
+    <room />
+    <isroom />
+    <beacon type="boolean">false</beacon>
+  </object>
+  <object name="Sample place 14">
+    <inherit name="editor_object" />
+    <room />
+    <isroom />
+    <beacon type="boolean">false</beacon>
+  </object>
+  <object name="Sample place 15">
+    <inherit name="editor_object" />
+    <room />
+    <isroom />
+    <beacon type="boolean">false</beacon>
+  </object>
 </asl>
