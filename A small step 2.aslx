@@ -101,24 +101,29 @@
   </object>
   <object name="The Bubble nebula">
     <inherit name="editor_room" />
-    <description><![CDATA[{img:heic1608a.jpg}<br/>Something went wrong. Your goal was to jump to Alpha Centauri and back, but apparently the Jump drive doesn't work exactly like you have expected. You find yourself inside of The Bubble nebula, also known as NGC 7635, more than 9000 light years from home.]]></description>
+    <description><![CDATA[{img:heic1608a.jpg}<br/>Something went wrong. Your goal was to jump to Alpha Centauri and back, but apparently the Jump drive doesn't work exactly like you have expected. You find yourself inside of The Bubble nebula, also known as NGC 7635, more than 9000 light years from home.<br/>After long discussion, your engineers tell you that until you plant 10 subspace beacons in different star systems, all jumps will go to random direction.<br/>Type "plant beacon" to plant the first beacon, then continue your journey.]]></description>
     <usedefaultprefix type="boolean">false</usedefaultprefix>
     <exit name="RandomExit" alias="random direction" to="Earth orbit">
       <runscript />
-      <script type="script">
+      <script type="script"><![CDATA[
         l = NewList()
         foreach (obj, AllRooms()) {
           if (obj.visited = false) {
             list add (l, obj)
           }
         }
-        jumpTarget = PickOneObject (l)
-        MoveObject (player, jumpTarget)
-      </script>
+        if (ListCount(l) >= 1) {
+          jumpTarget = PickOneObject (l)
+          MoveObject (player, jumpTarget)
+        }
+        else {
+          MoveObject (player, Earth orbit1)
+        }
+      ]]></script>
     </exit>
   </object>
   <command>
-    <pattern>place beacon</pattern>
+    <pattern>plant beacon</pattern>
     <script>
       DecreaseObjectCounter (player, "Beacons")
     </script>
@@ -126,7 +131,7 @@
   <command>
     <pattern>help</pattern>
     <script><![CDATA[
-      msg ("command list: <br/>\"place beacon\" leaves one beacon on current planet")
+      msg ("command list: <br/>\"plant beacon\" leaves one beacon on current planet")
     ]]></script>
   </command>
   <turnscript>
@@ -141,89 +146,368 @@
   <object name="Sample place 1">
     <inherit name="editor_room" />
     <beacon type="boolean">false</beacon>
+    <exit name="RandomExit1" alias="random direction" to="Earth orbit">
+      <runscript />
+      <script type="script"><![CDATA[
+        l = NewList()
+        foreach (obj, AllRooms()) {
+          if (obj.visited = false) {
+            list add (l, obj)
+          }
+        }
+        if (ListCount(l) >= 1) {
+          jumpTarget = PickOneObject (l)
+          MoveObject (player, jumpTarget)
+        }
+        else {
+          MoveObject (player, Earth orbit1)
+        }
+      ]]></script>
+    </exit>
   </object>
   <object name="Sample place 2">
     <inherit name="editor_object" />
     <room />
     <isroom />
     <beacon type="boolean">false</beacon>
+    <exit name="RandomExit2" alias="random direction" to="Earth orbit">
+      <runscript />
+      <script type="script"><![CDATA[
+        l = NewList()
+        foreach (obj, AllRooms()) {
+          if (obj.visited = false) {
+            list add (l, obj)
+          }
+        }
+        if (ListCount(l) >= 1) {
+          jumpTarget = PickOneObject (l)
+          MoveObject (player, jumpTarget)
+        }
+        else {
+          MoveObject (player, Earth orbit1)
+        }
+      ]]></script>
+    </exit>
   </object>
   <object name="Sample place 3">
     <inherit name="editor_object" />
     <room />
     <isroom />
     <beacon type="boolean">false</beacon>
+    <exit name="RandomExit3" alias="random direction" to="Earth orbit">
+      <runscript />
+      <script type="script"><![CDATA[
+        l = NewList()
+        foreach (obj, AllRooms()) {
+          if (obj.visited = false) {
+            list add (l, obj)
+          }
+        }
+        if (ListCount(l) >= 1) {
+          jumpTarget = PickOneObject (l)
+          MoveObject (player, jumpTarget)
+        }
+        else {
+          MoveObject (player, Earth orbit1)
+        }
+      ]]></script>
+    </exit>
   </object>
   <object name="Sample place 4">
     <inherit name="editor_object" />
     <room />
     <isroom />
     <beacon type="boolean">false</beacon>
+    <exit name="RandomExit4" alias="random direction" to="Earth orbit">
+      <runscript />
+      <script type="script"><![CDATA[
+        l = NewList()
+        foreach (obj, AllRooms()) {
+          if (obj.visited = false) {
+            list add (l, obj)
+          }
+        }
+        if (ListCount(l) >= 1) {
+          jumpTarget = PickOneObject (l)
+          MoveObject (player, jumpTarget)
+        }
+        else {
+          MoveObject (player, Earth orbit1)
+        }
+      ]]></script>
+    </exit>
   </object>
   <object name="Sample place 5">
     <inherit name="editor_object" />
     <room />
     <isroom />
     <beacon type="boolean">false</beacon>
+    <exit name="RandomExit5" alias="random direction" to="Earth orbit">
+      <runscript />
+      <script type="script"><![CDATA[
+        l = NewList()
+        foreach (obj, AllRooms()) {
+          if (obj.visited = false) {
+            list add (l, obj)
+          }
+        }
+        if (ListCount(l) >= 1) {
+          jumpTarget = PickOneObject (l)
+          MoveObject (player, jumpTarget)
+        }
+        else {
+          MoveObject (player, Earth orbit1)
+        }
+      ]]></script>
+    </exit>
   </object>
   <object name="Sample place 6">
     <inherit name="editor_object" />
     <room />
     <isroom />
     <beacon type="boolean">false</beacon>
+    <exit name="RandomExit6" alias="random direction" to="Earth orbit">
+      <runscript />
+      <script type="script"><![CDATA[
+        l = NewList()
+        foreach (obj, AllRooms()) {
+          if (obj.visited = false) {
+            list add (l, obj)
+          }
+        }
+        if (ListCount(l) >= 1) {
+          jumpTarget = PickOneObject (l)
+          MoveObject (player, jumpTarget)
+        }
+        else {
+          MoveObject (player, Earth orbit1)
+        }
+      ]]></script>
+    </exit>
   </object>
   <object name="Sample place 7">
     <inherit name="editor_object" />
     <room />
     <isroom />
     <beacon type="boolean">false</beacon>
+    <exit name="RandomExit7" alias="random direction" to="Earth orbit">
+      <runscript />
+      <script type="script"><![CDATA[
+        l = NewList()
+        foreach (obj, AllRooms()) {
+          if (obj.visited = false) {
+            list add (l, obj)
+          }
+        }
+        if (ListCount(l) >= 1) {
+          jumpTarget = PickOneObject (l)
+          MoveObject (player, jumpTarget)
+        }
+        else {
+          MoveObject (player, Earth orbit1)
+        }
+      ]]></script>
+    </exit>
   </object>
   <object name="Sample place 8">
     <inherit name="editor_object" />
     <room />
     <isroom />
     <beacon type="boolean">false</beacon>
+    <exit name="RandomExit8" alias="random direction" to="Earth orbit">
+      <runscript />
+      <script type="script"><![CDATA[
+        l = NewList()
+        foreach (obj, AllRooms()) {
+          if (obj.visited = false) {
+            list add (l, obj)
+          }
+        }
+        if (ListCount(l) >= 1) {
+          jumpTarget = PickOneObject (l)
+          MoveObject (player, jumpTarget)
+        }
+        else {
+          MoveObject (player, Earth orbit1)
+        }
+      ]]></script>
+    </exit>
   </object>
   <object name="Sample place 9">
     <inherit name="editor_object" />
     <room />
     <isroom />
     <beacon type="boolean">false</beacon>
+    <exit name="RandomExit9" alias="random direction" to="Earth orbit">
+      <runscript />
+      <script type="script"><![CDATA[
+        l = NewList()
+        foreach (obj, AllRooms()) {
+          if (obj.visited = false) {
+            list add (l, obj)
+          }
+        }
+        if (ListCount(l) >= 1) {
+          jumpTarget = PickOneObject (l)
+          MoveObject (player, jumpTarget)
+        }
+        else {
+          MoveObject (player, Earth orbit1)
+        }
+      ]]></script>
+    </exit>
   </object>
   <object name="Sample place 10">
     <inherit name="editor_object" />
     <room />
     <isroom />
     <beacon type="boolean">false</beacon>
+    <exit name="RandomExit10" alias="random direction" to="Earth orbit">
+      <runscript />
+      <script type="script"><![CDATA[
+        l = NewList()
+        foreach (obj, AllRooms()) {
+          if (obj.visited = false) {
+            list add (l, obj)
+          }
+        }
+        if (ListCount(l) >= 1) {
+          jumpTarget = PickOneObject (l)
+          MoveObject (player, jumpTarget)
+        }
+        else {
+          MoveObject (player, Earth orbit1)
+        }
+      ]]></script>
+    </exit>
   </object>
   <object name="Sample place 11">
     <inherit name="editor_object" />
     <room />
     <isroom />
     <beacon type="boolean">false</beacon>
+    <exit name="RandomExit11" alias="random direction" to="Earth orbit">
+      <runscript />
+      <script type="script"><![CDATA[
+        l = NewList()
+        foreach (obj, AllRooms()) {
+          if (obj.visited = false) {
+            list add (l, obj)
+          }
+        }
+        if (ListCount(l) >= 1) {
+          jumpTarget = PickOneObject (l)
+          MoveObject (player, jumpTarget)
+        }
+        else {
+          MoveObject (player, Earth orbit1)
+        }
+      ]]></script>
+    </exit>
   </object>
   <object name="Sample place 12">
     <inherit name="editor_object" />
     <room />
     <isroom />
     <beacon type="boolean">false</beacon>
+    <exit name="RandomExit12" alias="random direction" to="Earth orbit">
+      <runscript />
+      <script type="script"><![CDATA[
+        l = NewList()
+        foreach (obj, AllRooms()) {
+          if (obj.visited = false) {
+            list add (l, obj)
+          }
+        }
+        if (ListCount(l) >= 1) {
+          jumpTarget = PickOneObject (l)
+          MoveObject (player, jumpTarget)
+        }
+        else {
+          MoveObject (player, Earth orbit1)
+        }
+      ]]></script>
+    </exit>
   </object>
   <object name="Sample place 13">
     <inherit name="editor_object" />
     <room />
     <isroom />
     <beacon type="boolean">false</beacon>
+    <exit name="RandomExit13" alias="random direction" to="Earth orbit">
+      <runscript />
+      <script type="script"><![CDATA[
+        l = NewList()
+        foreach (obj, AllRooms()) {
+          if (obj.visited = false) {
+            list add (l, obj)
+          }
+        }
+        if (ListCount(l) >= 1) {
+          jumpTarget = PickOneObject (l)
+          MoveObject (player, jumpTarget)
+        }
+        else {
+          MoveObject (player, Earth orbit1)
+        }
+      ]]></script>
+    </exit>
   </object>
   <object name="Sample place 14">
     <inherit name="editor_object" />
     <room />
     <isroom />
     <beacon type="boolean">false</beacon>
+    <exit name="RandomExit14" alias="random direction" to="Earth orbit">
+      <runscript />
+      <script type="script"><![CDATA[
+        l = NewList()
+        foreach (obj, AllRooms()) {
+          if (obj.visited = false) {
+            list add (l, obj)
+          }
+        }
+        if (ListCount(l) >= 1) {
+          jumpTarget = PickOneObject (l)
+          MoveObject (player, jumpTarget)
+        }
+        else {
+          MoveObject (player, Earth orbit1)
+        }
+      ]]></script>
+    </exit>
   </object>
   <object name="Sample place 15">
     <inherit name="editor_object" />
     <room />
     <isroom />
     <beacon type="boolean">false</beacon>
+    <exit name="RandomExit15" alias="random direction" to="Earth orbit">
+      <runscript />
+      <script type="script"><![CDATA[
+        l = NewList()
+        foreach (obj, AllRooms()) {
+          if (obj.visited = false) {
+            list add (l, obj)
+          }
+        }
+        if (ListCount(l) >= 1) {
+          jumpTarget = PickOneObject (l)
+          MoveObject (player, jumpTarget)
+        }
+        else {
+          MoveObject (player, Earth orbit1)
+        }
+      ]]></script>
+    </exit>
+  </object>
+  <object name="Earth orbit1">
+    <inherit name="editor_room" />
+    <isroom type="boolean">false</isroom>
+    <description><![CDATA[{img:bwhi1apicaaamlo.jpg_large.jpg}<br/>Your great journey has ended. Welcome home, Captain!<br/>]]></description>
+    <usedefaultprefix type="boolean">false</usedefaultprefix>
+    <enter type="script">
+      finish
+    </enter>
   </object>
 </asl>
