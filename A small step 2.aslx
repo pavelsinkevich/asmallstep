@@ -1,0 +1,99 @@
+<!--Saved by Quest 5.8.6836.13983-->
+<asl version="580">
+  <include ref="English.aslx" />
+  <include ref="Core.aslx" />
+  <game name="A small step">
+    <gameid>68b5edc1-0a55-40aa-a10f-bda8209ef522</gameid>
+    <version>1.0</version>
+    <firstpublished>2018</firstpublished>
+    <turnoffcompass />
+    <description>You are captain of the first experimental spaceship with jump drive, able to travel faster-then-light. This is your first flight. The first step into the Galaxy for the whole humankind. Humanity is looking at you with great aspiration, Captain.</description>
+    <pov type="object">player</pov>
+    <roomenter type="script">
+      DecreaseObjectCounter (player, "Fuel")
+    </roomenter>
+    <showdescriptiononenter />
+    <clearscreenonroomenter />
+    <autodisplayverbs />
+    <attr name="autodescription_description" type="int">2</attr>
+    <attr name="autodescription_youcansee" type="int">4</attr>
+  </game>
+  <object name="Earth orbit">
+    <inherit name="editor_room" />
+    <isroom />
+    <description><![CDATA[{img:bwhi1apicaaamlo.jpg_large.jpg}<br/>You are captain of the first experimental spaceship with jump drive, able to travel faster-then-light. And this is your first flight on this ship. The first step into the Galaxy for the whole humankind. Humanity is looking at you with great aspiration, Captain.<br/>Your cargo hold can contain only 2 items. What will you choose?<br/>]]></description>
+    <usedefaultprefix type="boolean">false</usedefaultprefix>
+    <object name="player">
+      <inherit name="editor_object" />
+      <inherit name="editor_player" />
+      <isroom />
+      <statusattributes type="stringdictionary">
+        <item>
+          <key>Fuel</key>
+          <value>Fuel: !</value>
+        </item>
+        <item>
+          <key>Energy</key>
+          <value>Energy: !</value>
+        </item>
+        <item>
+          <key>Scaner power</key>
+          <value>Scaner power: !</value>
+        </item>
+        <item>
+          <key>Beacons</key>
+          <value>Beacons: !</value>
+        </item>
+      </statusattributes>
+      <Energy type="int">200</Energy>
+      <Fuel type="int">31</Fuel>
+      <attr name="Scaner power" type="int">100</attr>
+      <Beacons type="int">10</Beacons>
+    </object>
+    <exit name="FirstExit" alias="the great unkonwn" to="The Bubble nebula">
+      <runscript type="boolean">false</runscript>
+      <locked type="boolean">false</locked>
+      <visible type="boolean">false</visible>
+      <script type="script">
+        DecreaseObjectCounter (player, "Fuel")
+      </script>
+    </exit>
+    <object name="Gold ingots">
+      <inherit name="editor_object" />
+      <take />
+      <ontake type="script">
+      </ontake>
+    </object>
+    <object name="Recordings of best human movies">
+      <inherit name="editor_object" />
+      <take />
+    </object>
+    <object name="Devastating weapons">
+      <inherit name="editor_object" />
+      <take />
+    </object>
+    <object name="Samples of human DNA">
+      <inherit name="editor_object" />
+      <take />
+    </object>
+    <turnscript>
+      <enabled />
+      <script><![CDATA[
+        if (ListCount(ScopeInventory()) >= 2) {
+          msg ("You have made the choice. Now it's time to begin your journey")
+          foreach (obj, ScopeVisibleNotHeld()) {
+            if (obj.name <> "player") {
+              obj.visible = false
+            }
+            FirstExit.visible = true
+          }
+        }
+      ]]></script>
+    </turnscript>
+  </object>
+  <object name="The Bubble nebula">
+    <inherit name="editor_room" />
+    <description><![CDATA[{img:heic1608a.jpg}<br/>Something went wrong. Your goal was to jump to Alpha Centauri and back, but apparently the Jump drive doesn't work exactly like you have expected. You find yourself inside of The Bubble nebula, also known as NGC 7635.]]></description>
+    <usedefaultprefix type="boolean">false</usedefaultprefix>
+  </object>
+</asl>
