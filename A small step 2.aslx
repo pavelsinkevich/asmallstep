@@ -25,7 +25,7 @@
   <object name="Earth orbit">
     <inherit name="editor_room" />
     <isroom />
-    <description><![CDATA[{img:bwhi1apicaaamlo.jpg_large.jpg}<br/>You are captain of the first experimental spaceship with jump drive, able to travel faster-then-light. And this is your first flight on this ship. The first step into the Galaxy for the whole humankind. Humanity is looking at you with great aspiration, Captain.<br/>Your cargo hold can contain only 2 items. What will you choose?<br/>]]></description>
+    <description><![CDATA[{img:images\earth.jpg}<br/>You are captain of the first experimental spaceship with jump drive, able to travel faster-then-light. And this is your first flight on this ship. The first step into the Galaxy for the whole humankind. Humanity is looking at you with great aspiration, Captain.<br/>Your cargo hold can contain only 2 items. What will you choose?<br/>]]></description>
     <usedefaultprefix type="boolean">false</usedefaultprefix>
     <object name="player">
       <inherit name="editor_object" />
@@ -102,7 +102,7 @@
   </object>
   <object name="The Bubble nebula">
     <inherit name="editor_room" />
-    <description><![CDATA[{img:heic1608a.jpg}<br/>Something went wrong. Your goal was to jump to Alpha Centauri and back, but apparently the Jump drive doesn't work exactly like you have expected. You find yourself inside of The Bubble nebula, also known as NGC 7635, more than 9000 light years from home.<br/>After long discussion, your engineers tell you that until you plant 10 subspace beacons in different star systems, all jumps will go to random direction.<br/>Type "plant beacon" to plant the first beacon, then continue your journey.]]></description>
+    <description><![CDATA[{img:images\bubble.jpg}<br/>Something went wrong. Your goal was to jump to Alpha Centauri and back, but apparently the Jump drive doesn't work exactly like you have expected. You find yourself inside of The Bubble nebula, also known as NGC 7635, more than 9000 light years from home.<br/>After long discussion, your engineers tell you that until you plant 10 subspace beacons in different star systems, all jumps will go to random direction.<br/>Type "plant beacon" to plant the first beacon, then continue your journey.]]></description>
     <usedefaultprefix type="boolean">false</usedefaultprefix>
     <exit name="RandomExit" alias="random direction" to="Earth orbit">
       <runscript />
@@ -144,11 +144,13 @@
       }
     ]]></script>
   </turnscript>
-  <object name="Sample place 1">
+  <object name="Butterfly Nebula">
     <inherit name="editor_room" />
     <beacon type="boolean">false</beacon>
+    <description><![CDATA[{img:images\Butterfly.jpg}<br/>BC:  << Planet Dead Head. Butterfly Nebula. You have an incoming call.>><br/><br/><br/>You answer the question.<br/><br/><br/>Voice: << Is anybody there? We’ve run out of power! No power! No power! Do you hear me? >><br/>You look through the window of your ship. You notice: the size of the planet is not really huge but it’s impossible to make out any scene.<br/>You decide to land here.<br/><br/><br/>....<br/><br/><br/>After landing you find yourself in the complete darkness. You hear a familiar voice.<br/>Voice: << No power! No power! >><br/>Another Voice: << Please! Please! >><br/>You are trying to learn more about the situation. You understand: they have achieved a great progress in the sphere of technical production but haven’t learned how to produce the energy.<br/>You decide to help them.<br/><br/><br/>{command: Give them the energy from your ship}<br/><br/>{command: Teach them how to build the Solar Station}<br/>]]></description>
     <exit name="RandomExit1" alias="random direction" to="Earth orbit">
       <runscript />
+      <visible type="boolean">false</visible>
       <script type="script"><![CDATA[
         l = NewList()
         foreach (obj, AllRooms()) {
@@ -165,14 +167,32 @@
         }
       ]]></script>
     </exit>
+    <command name="Give them the energy from your ship">
+      <pattern>Give them the energy from your ship</pattern>
+      <script><![CDATA[
+        msg ("<br/>They are grateful and you now can plant the beacon.<br/>")
+        player.Fuel = player.Fuel - 5
+        MakeExitVisible (RandomExit1)
+      ]]></script>
+    </command>
+    <command name="Teach them how to build the Solar Station">
+      <pattern>Teach them how to build the Solar Station</pattern>
+      <script><![CDATA[
+        msg ("<br/>Thank you, stranger. It wasn't obvious to us. We are saved now.<br/>")
+        player.Fuel = player.Fuel - 3
+        MakeExitVisible (RandomExit1)
+      ]]></script>
+    </command>
   </object>
-  <object name="Sample place 2">
-    <inherit name="editor_object" />
+  <object name="Carina nebula">
+    <inherit name="editor_room" />
     <room />
     <isroom />
     <beacon type="boolean">false</beacon>
+    <description><![CDATA[{img:images\Carina.jpg}<br/>BC: << Planet in Nebula Carina. No atmosphere. >><br/><br/><br/>You understand that the absence of atmosphere will badly influence your beacon. The temperature of the planet is extremely unstable. That’s why it looks so empty and abandoned. Without any sign of protection. Cold and devastated.<br/><br/><br/>You decide to land here and create the necessary conditions for planting the beacon.<br/><br/><br/>{command: Create “greenhouse effect” with the help of carbon dioxide}]]></description>
     <exit name="RandomExit2" alias="random direction" to="Earth orbit">
       <runscript />
+      <visible type="boolean">false</visible>
       <script type="script"><![CDATA[
         l = NewList()
         foreach (obj, AllRooms()) {
@@ -189,14 +209,23 @@
         }
       ]]></script>
     </exit>
+    <command>
+      <pattern>Create “greenhouse effect” with the help of carbon dioxide</pattern>
+      <script><![CDATA[
+        msg ("<br/>You've created a \"greenhouse effect\" and now can plant the beacon.<br/>")
+        MakeExitVisible (RandomExit2)
+      ]]></script>
+    </command>
   </object>
-  <object name="Sample place 3">
-    <inherit name="editor_object" />
+  <object name="Crab nebula">
+    <inherit name="editor_room" />
     <room />
     <isroom />
     <beacon type="boolean">false</beacon>
+    <description><![CDATA[{img:images\Crab.jpg}<br/>BC: << Planet in Crab Nebula. An undistinguished type. >><br/><br/><br/>“They are so alike. Just the same picture each time. The picture of perfect nothingness”. The only thought that comes to your mind while observing the lifeless calmness of this planet. You decide to land and plant the beacon.<br/><br/><br/>BC: << Alert! The activity has been detected. 128 meters up North. >><br/>You feel that your ship is pushed with something outside. <br/><br/><br/>BC: << Alert! Alert! >><br/><br/><br/>BC shows you an image of a huge creature right ahead.<br/><br/><br/>{command: Try to escape from the monster}<br/><br/>{command: Fight}]]></description>
     <exit name="RandomExit3" alias="random direction" to="Earth orbit">
       <runscript />
+      <visible type="boolean">false</visible>
       <script type="script"><![CDATA[
         l = NewList()
         foreach (obj, AllRooms()) {
@@ -213,14 +242,31 @@
         }
       ]]></script>
     </exit>
+    <command>
+      <pattern>Try to escape from the monster</pattern>
+      <script><![CDATA[
+        msg ("<br/>You run until the monster lags behind and loses sight of you. You can catch your breath and plant the beacon.<br/>")
+        player.Health level = player.Health level - 30
+        MakeExitVisible (RandomExit3)
+      ]]></script>
+    </command>
+    <command>
+      <pattern>Fight</pattern>
+      <script><![CDATA[
+        msg ("<br/>You have time to notice the hole in the chest of the monster, through which you can see his heart, before the monster rushes at you. Snatching a gun, you shoot him in the chest. The monster emits a last cry and falls. You won.<br/>Now nothing stoppes you from plantig a new beacon.<br/>")
+        MakeExitVisible (RandomExit3)
+      ]]></script>
+    </command>
   </object>
-  <object name="Sample place 4">
-    <inherit name="editor_object" />
+  <object name="Eagle nebula">
+    <inherit name="editor_room" />
     <room />
     <isroom />
     <beacon type="boolean">false</beacon>
+    <description><![CDATA[{img:images\Eagle.jpg}<br/>BC: << Planet Bird. Eagle Nebula. Only mountains. >><br/><br/>You’re scanning the relief of the planet. That was enough to recall the memories from your childhood. You don’t really remember these times, but you’re sure that this view is something that you saw each morning long years ago. Something homey and warm.<br/><br/>You decide to land on the peak of the mountain. This place seems to be the most convenient to plant the beacon.<br/><br/><br/>{command: To Land}<br/><br/>{command: Fly farther and find a steppe where you land the ship}<br/>]]></description>
     <exit name="RandomExit4" alias="random direction" to="Earth orbit">
       <runscript />
+      <visible type="boolean">false</visible>
       <script type="script"><![CDATA[
         l = NewList()
         foreach (obj, AllRooms()) {
@@ -237,14 +283,31 @@
         }
       ]]></script>
     </exit>
+    <command name="To Land">
+      <pattern>To Land</pattern>
+      <script><![CDATA[
+        msg ("<br/>You land here. The stony ground under your ship starts sliding and you fall down from the mountain.<br/>")
+        MakeExitVisible (RandomExit4)
+        finish
+      ]]></script>
+    </command>
+    <command>
+      <pattern>Fly farther and find a steppe where you land the ship</pattern>
+      <script><![CDATA[
+        msg ("<br/>After this you plant the beacon.<br/>")
+        MakeExitVisible (RandomExit4)
+      ]]></script>
+    </command>
   </object>
-  <object name="Sample place 5">
-    <inherit name="editor_object" />
+  <object name="Horse Head nebula">
+    <inherit name="editor_room" />
     <room />
     <isroom />
     <beacon type="boolean">false</beacon>
+    <description><![CDATA[{img:images\HorseHead.jpg}<br/>BC: << Horse Head Nebula. Gas giant. Impossible to plant the beacon >><br/><br/>Well, one more problem. You’re fully mixed-up. <br/><br/>BC: << Do you need any help? >><br/><br/>No, no, no. I should find the other planet.<br/><br/>BC: << Impossible. If you’re going to explore something else you’ll be lack of fuel too fast. We don’t have any time for changing our route. >><br/><br/>Any other variants? <br/><br/>BC: << Satellite of this planet. >><br/><br/>Anything else?<br/><br/>BC: <<Orbit? >><br/><br/>You flash on the fact that this is the only variant.<br/><br/><br/>]]></description>
     <exit name="RandomExit5" alias="random direction" to="Earth orbit">
       <runscript />
+      <visible />
       <script type="script"><![CDATA[
         l = NewList()
         foreach (obj, AllRooms()) {
@@ -262,13 +325,15 @@
       ]]></script>
     </exit>
   </object>
-  <object name="Sample place 6">
-    <inherit name="editor_object" />
+  <object name="Orion nebula">
+    <inherit name="editor_room" />
     <room />
     <isroom />
     <beacon type="boolean">false</beacon>
+    <description><![CDATA[{img:images\Orion.jpg}<br/>BC: « Orion Nebula. Asteroid field. » <br/>You’re trying to land the ship without smashing into asteroid. <br/>Success. <br/>BC: « Spectacular! I can be proud of you, sweetie.» <br/>Your BC can be too irritating sometimes. <br/><br/><br/>{command: “I’ll sell you on the nearest planet” }<br/><br/><br/>]]></description>
     <exit name="RandomExit6" alias="random direction" to="Earth orbit">
       <runscript />
+      <visible type="boolean">false</visible>
       <script type="script"><![CDATA[
         l = NewList()
         foreach (obj, AllRooms()) {
@@ -285,14 +350,23 @@
         }
       ]]></script>
     </exit>
+    <command>
+      <pattern>“I’ll sell you on the nearest planet”</pattern>
+      <script><![CDATA[
+        msg ("<br/><br/>After this you plant a beacon.")
+        MakeExitVisible (RandomExit6)
+      ]]></script>
+    </command>
   </object>
-  <object name="Sample place 7">
-    <inherit name="editor_object" />
+  <object name="Pillars Of Creation nebula">
+    <inherit name="editor_room" />
     <room />
     <isroom />
     <beacon type="boolean">false</beacon>
+    <description><![CDATA[{img:images\PillarsOfCreation.jpg}<br/>BC: « Planet in Pillars Of Creation Nebula. You won’t believe it. Ocean! >><br/><br/>You’re nervously making haste to the window. Water. Endless universe of amazing beauty. You feel a kind of sadness, missing of something important and great. Longing for home.<br/><br/>BC: << You, I mean, people - you are so boring and sentimental. >><br/><br/>- Come on, you was just the same when we were installing you into this system.<br/><br/>BC: << That’s not so! I was in a bad condition, you know it. Bastard. >><br/><br/>You sigh.<br/><br/>In some minutes BC finds the place where you can plant the beacon but then you realize the existence of rational beings there. They have a brood in this place.<br/><br/><br/>{command: Convince them that the beacon won't cause damage and hurt the brood}<br/><br/>{command: Find the other place }<br/><br/>]]></description>
     <exit name="RandomExit7" alias="random direction" to="Earth orbit">
       <runscript />
+      <visible type="boolean">false</visible>
       <script type="script"><![CDATA[
         l = NewList()
         foreach (obj, AllRooms()) {
@@ -309,14 +383,30 @@
         }
       ]]></script>
     </exit>
+    <command>
+      <pattern>Find the other place </pattern>
+      <script><![CDATA[
+        msg ("<br/>After this you plant a beacon.")
+        MakeExitVisible (RandomExit7)
+      ]]></script>
+    </command>
+    <command>
+      <pattern>Convince them that the beacon won't cause damage and hurt the brood</pattern>
+      <script>
+        msg (".......")
+        MakeExitVisible (RandomExit7)
+      </script>
+    </command>
   </object>
-  <object name="Sample place 8">
-    <inherit name="editor_object" />
+  <object name="Red Spider nebula">
+    <inherit name="editor_room" />
     <room />
     <isroom />
     <beacon type="boolean">false</beacon>
+    <description><![CDATA[{img:images\RedSpider.jpg}<br/>BC: « Planet Tarantula. Red Spider Nebula. Enjoy. >><br/>You can observe gorgeous and giant cities which are full of unbelievable buildings and sky-scrapers; the only one thing that affronts the eye is the image of empty streets and the oldness of everything.<br/><br/>{command: Fight}<br/><br/>{command: Try to escape (you were caught by the drones.}<br/>]]></description>
     <exit name="RandomExit8" alias="random direction" to="Earth orbit">
       <runscript />
+      <visible type="boolean">false</visible>
       <script type="script"><![CDATA[
         l = NewList()
         foreach (obj, AllRooms()) {
@@ -333,14 +423,31 @@
         }
       ]]></script>
     </exit>
+    <command name="Fight">
+      <pattern>Fight</pattern>
+      <script><![CDATA[
+        msg (".......<br/><br/>")
+        player.Health level = player.Health level - 10
+        MakeExitVisible (RandomExit8)
+      ]]></script>
+    </command>
+    <command>
+      <pattern>Try to escape </pattern>
+      <script>
+        msg ("You were caught by the drones.")
+        finish
+      </script>
+    </command>
   </object>
-  <object name="Sample place 9">
-    <inherit name="editor_object" />
+  <object name="Lagoon nebula">
+    <inherit name="editor_room" />
     <room />
     <isroom />
     <beacon type="boolean">false</beacon>
+    <description><![CDATA[{img:images\TheLagoon.jpg}<br/>BC: « Planet Blue in Lagoon Nebula. Don’t you feel something strange?>><br/>Yeah, you’ve got some kind of discomfort in your body, especially head. Pain and entire tiredness. You fall asleep.<br/>...<br/><br/>BC: <<GM, sweetie. Guess what?>><br/>- What?<br/>BC: << We’re lack of fuel. Somebody’s stolen it all>><br/>You use lots of offensive words to describe the situation.<br/>BC: <<Incoming call>><br/>You answer it and hear a familiar voice. He says: “Do you need any help?”. You respond “yep”. The calling guy offers some fuel in exchange for your help. You get to know that he was locked on this planet and has been living here for three years in complete loneliness. He asks you to talk to him. You agree and get your fuel back.<br/>After this you plant the beacon.<br/><br/><br/>{command: Leave this guy on the planet and fly away}<br/><br/>{command: Help him to get out}]]></description>
     <exit name="RandomExit9" alias="random direction" to="Earth orbit">
       <runscript />
+      <visible type="boolean">false</visible>
       <script type="script"><![CDATA[
         l = NewList()
         foreach (obj, AllRooms()) {
@@ -357,14 +464,30 @@
         }
       ]]></script>
     </exit>
+    <command>
+      <pattern>Leave this guy on the planet and fly away</pattern>
+      <script>
+        msg ("....")
+        MakeExitVisible (RandomExit9)
+      </script>
+    </command>
+    <command name="Help him to get out">
+      <pattern>Help him to get out</pattern>
+      <script>
+        msg ("As soon as he gets on the board of your ship, you realize a strange smell coming from his clothes. You’re poisoned.")
+        finish
+      </script>
+    </command>
   </object>
-  <object name="Sample place 10">
-    <inherit name="editor_object" />
+  <object name="NGC3603">
+    <inherit name="editor_room" />
     <room />
     <isroom />
     <beacon type="boolean">false</beacon>
+    <description><![CDATA[{img:images\StarClusterInNGC3603.jpg}<br/>BC: « Planet in NGC3603. Look! Just look at this! >><br/>You screw up your eyes and turn short. The planet looks like the Earth just right to a tee. BC lands the ship. You are all adrift.<br/>When you make the first step outside you see the crowd of people. They meet you with greetings and you understand - this is your home.<br/>BC: << Are you sure?  >><br/>You cannot respond. You see your relatives are making haste towards you and you feel happiness. Maybe.<br/>BC: << I will wait you here. >><br/>Few hours later you find yourself sitting round the table and discussing your flight with your family. <br/>Somebody asks you: "Why didn't you help this guy?"<br/><br/><br/>{command: Don't pay any attention to the question.}<br/><br/>{command: Getting shocked with the question because you haven't said anything about it.}]]></description>
     <exit name="RandomExit10" alias="random direction" to="Earth orbit">
       <runscript />
+      <visible type="boolean">false</visible>
       <script type="script"><![CDATA[
         l = NewList()
         foreach (obj, AllRooms()) {
@@ -381,126 +504,20 @@
         }
       ]]></script>
     </exit>
-  </object>
-  <object name="Sample place 11">
-    <inherit name="editor_object" />
-    <room />
-    <isroom />
-    <beacon type="boolean">false</beacon>
-    <exit name="RandomExit11" alias="random direction" to="Earth orbit">
-      <runscript />
-      <script type="script"><![CDATA[
-        l = NewList()
-        foreach (obj, AllRooms()) {
-          if (obj.visited = false) {
-            list add (l, obj)
-          }
-        }
-        if (ListCount(l) >= 1) {
-          jumpTarget = PickOneObject (l)
-          MoveObject (player, jumpTarget)
-        }
-        else {
-          MoveObject (player, Earth orbit1)
-        }
+    <command>
+      <pattern>Getting shocked with the question because you haven't said anything about it.</pattern>
+      <script><![CDATA[
+        msg ("Try to escape.<br/><br/>Now you can plant a beacon.")
+        MakeExitVisible (RandomExit10)
       ]]></script>
-    </exit>
-  </object>
-  <object name="Sample place 12">
-    <inherit name="editor_object" />
-    <room />
-    <isroom />
-    <beacon type="boolean">false</beacon>
-    <exit name="RandomExit12" alias="random direction" to="Earth orbit">
-      <runscript />
-      <script type="script"><![CDATA[
-        l = NewList()
-        foreach (obj, AllRooms()) {
-          if (obj.visited = false) {
-            list add (l, obj)
-          }
-        }
-        if (ListCount(l) >= 1) {
-          jumpTarget = PickOneObject (l)
-          MoveObject (player, jumpTarget)
-        }
-        else {
-          MoveObject (player, Earth orbit1)
-        }
+    </command>
+    <command>
+      <pattern>Don't pay any attention to the question.</pattern>
+      <script><![CDATA[
+        msg ("BC calls you several times and then you lose all the contacts with it. You stay on this planet without awareness of what happens outside your house. <br/>When you realize that this is a fake version of your home; you commit suicide.")
+        finish
       ]]></script>
-    </exit>
-  </object>
-  <object name="Sample place 13">
-    <inherit name="editor_object" />
-    <room />
-    <isroom />
-    <beacon type="boolean">false</beacon>
-    <exit name="RandomExit13" alias="random direction" to="Earth orbit">
-      <runscript />
-      <script type="script"><![CDATA[
-        l = NewList()
-        foreach (obj, AllRooms()) {
-          if (obj.visited = false) {
-            list add (l, obj)
-          }
-        }
-        if (ListCount(l) >= 1) {
-          jumpTarget = PickOneObject (l)
-          MoveObject (player, jumpTarget)
-        }
-        else {
-          MoveObject (player, Earth orbit1)
-        }
-      ]]></script>
-    </exit>
-  </object>
-  <object name="Sample place 14">
-    <inherit name="editor_object" />
-    <room />
-    <isroom />
-    <beacon type="boolean">false</beacon>
-    <exit name="RandomExit14" alias="random direction" to="Earth orbit">
-      <runscript />
-      <script type="script"><![CDATA[
-        l = NewList()
-        foreach (obj, AllRooms()) {
-          if (obj.visited = false) {
-            list add (l, obj)
-          }
-        }
-        if (ListCount(l) >= 1) {
-          jumpTarget = PickOneObject (l)
-          MoveObject (player, jumpTarget)
-        }
-        else {
-          MoveObject (player, Earth orbit1)
-        }
-      ]]></script>
-    </exit>
-  </object>
-  <object name="Sample place 15">
-    <inherit name="editor_object" />
-    <room />
-    <isroom />
-    <beacon type="boolean">false</beacon>
-    <exit name="RandomExit15" alias="random direction" to="Earth orbit">
-      <runscript />
-      <script type="script"><![CDATA[
-        l = NewList()
-        foreach (obj, AllRooms()) {
-          if (obj.visited = false) {
-            list add (l, obj)
-          }
-        }
-        if (ListCount(l) >= 1) {
-          jumpTarget = PickOneObject (l)
-          MoveObject (player, jumpTarget)
-        }
-        else {
-          MoveObject (player, Earth orbit1)
-        }
-      ]]></script>
-    </exit>
+    </command>
   </object>
   <object name="Earth orbit1">
     <inherit name="editor_room" />
@@ -511,4 +528,14 @@
       finish
     </enter>
   </object>
+  <verb>
+    <property>toland</property>
+    <pattern>to land</pattern>
+    <defaultexpression>"You can't to land " + object.article + "."</defaultexpression>
+  </verb>
+  <verb>
+    <property>answer</property>
+    <pattern>answer</pattern>
+    <defaultexpression>"You can't answer " + object.article + "."</defaultexpression>
+  </verb>
 </asl>
