@@ -14,6 +14,10 @@
     <autodisplayverbs />
     <attr name="autodescription_description" type="int">2</attr>
     <attr name="autodescription_youcansee" type="int">4</attr>
+    <defaultfontsize type="int">10</defaultfontsize>
+    <defaultfont>'Arial Black', Gadget, sans-serif</defaultfont>
+    <menufontsize type="int">12</menufontsize>
+    <menufont>'Courier New', Courier, monospace</menufont>
     <pov type="object">player</pov>
     <roomenter type="script">
       DecreaseObjectCounter (player, "Fuel")
@@ -21,15 +25,11 @@
     </roomenter>
     <start type="script">
     </start>
-    <defaultfontsize type="int">10</defaultfontsize>
-    <defaultfont>'Arial Black', Gadget, sans-serif</defaultfont>
-    <menufontsize type="int">12</menufontsize>
-    <menufont>'Courier New', Courier, monospace</menufont>
   </game>
   <object name="Earth orbit">
     <inherit name="editor_room" />
     <isroom />
-    <description><![CDATA[{img:images\earth.jpg}<br/>You are captain of the first experimental spaceship with jump drive, able to travel faster-then-light. And this is your first flight on this ship. The first step into the Galaxy for the whole humankind. Humanity is looking at you with great aspiration, Captain.<br/>Your cargo hold can contain only 2 items. What will you choose?<br/>]]></description>
+    <description><![CDATA[{img:earth.jpg}<br/>You are captain of the first experimental spaceship with jump drive, able to travel faster-then-light. And this is your first flight on this ship. The first step into the Galaxy for the whole humankind. Humanity is looking at you with great aspiration, Captain.<br/>Your cargo hold can contain only 2 items. What will you choose?<br/>]]></description>
     <usedefaultprefix type="boolean">false</usedefaultprefix>
     <exit name="FirstExit" alias="the great unkonwn" to="The Bubble nebula">
       <runscript type="boolean">false</runscript>
@@ -106,7 +106,7 @@
   </object>
   <object name="The Bubble nebula">
     <inherit name="editor_room" />
-    <description><![CDATA[{img:images\bubble.jpg}<br/>Something went wrong. Your goal was to jump to Alpha Centauri and back, but apparently the Jump drive doesn't work exactly like you have expected. You find yourself inside of The Bubble nebula, also known as NGC 7635, more than 9000 light years from home.<br/>After long discussion, your engineers tell you that until you plant 10 subspace beacons in different star systems, all jumps will go to random direction.<br/>Type "plant beacon" to plant the first beacon, then continue your journey.]]></description>
+    <description><![CDATA[{img:bubble.jpg}<br/>Something went wrong. Your goal was to jump to Alpha Centauri and back, but apparently the Jump drive doesn't work exactly like you have expected. You find yourself inside of The Bubble nebula, also known as NGC 7635, more than 9000 light years from home.<br/>After long discussion, your engineers tell you that until you plant 10 subspace beacons in different star systems, all jumps will go to random direction.<br/>Type "plant beacon" to plant the first beacon, then continue your journey.]]></description>
     <usedefaultprefix type="boolean">false</usedefaultprefix>
     <exit name="RandomExit" alias="random direction" to="Earth orbit">
       <runscript />
@@ -151,7 +151,7 @@
   <object name="Butterfly Nebula">
     <inherit name="editor_room" />
     <beacon type="boolean">false</beacon>
-    <description><![CDATA[{img:images\Butterfly.jpg}<br/>BC:  << Planet Dead Head. Butterfly Nebula. You have an incoming call.>><br/>You answer the question.<br/>Voice: << Is anybody there? We’ve run out of power! No power! No power! Do you hear me? >><br/>You look through the window of your ship. You notice: the size of the planet is not really huge but it’s impossible to make out any scene.<br/>You decide to land here.<br/>....<br/>After landing you find yourself in the complete darkness. You hear a familiar voice.<br/>Voice: << No power! No power! >><br/>Another Voice: << Please! Please! >><br/>You are trying to learn more about the situation. You understand: they have achieved a great progress in the sphere of technical production but haven’t learned how to produce the energy.<br/>You decide to help them.<br/>{command: Give them the energy from your ship}<br/>{command: Teach them how to build the Solar Station}<br/>]]></description>
+    <description><![CDATA[{img:Butterfly.jpg}<br/>BC:  << Planet Dead Head. Butterfly Nebula. You have an incoming call.>><br/>You answer the question.<br/>Voice: << Is anybody there? We’ve run out of power! No power! No power! Do you hear me? >><br/>You look through the window of your ship. You notice: the size of the planet is not really huge but it’s impossible to make out any scene.<br/>You decide to land here.<br/>....<br/>After landing you find yourself in the complete darkness. You hear a familiar voice.<br/>Voice: << No power! No power! >><br/>Another Voice: << Please! Please! >><br/>You are trying to learn more about the situation. You understand: they have achieved a great progress in the sphere of technical production but haven’t learned how to produce the energy.<br/>You decide to help them.<br/>{command: Give them the energy from your ship}<br/>{command: Teach them how to build the Solar Station}<br/>]]></description>
     <exit name="RandomExit1" alias="random direction" to="Earth orbit">
       <runscript />
       <visible type="boolean">false</visible>
@@ -193,7 +193,7 @@
     <room />
     <isroom />
     <beacon type="boolean">false</beacon>
-    <description><![CDATA[{img:images\Carina.jpg}<br/>BC: << Planet in Nebula Carina. No atmosphere. >><br/>You understand that the absence of atmosphere will badly influence your beacon. The temperature of the planet is extremely unstable. That’s why it looks so empty and abandoned. Without any sign of protection. Cold and devastated.<br/>You decide to land here and create the necessary conditions for planting the beacon.<br/>{command: Create “greenhouse effect” with the help of carbon dioxide}]]></description>
+    <description><![CDATA[{img:Carina.jpg}<br/>BC: << Planet in Nebula Carina. No atmosphere. >><br/>You understand that the absence of atmosphere will badly influence your beacon. The temperature of the planet is extremely unstable. That’s why it looks so empty and abandoned. Without any sign of protection. Cold and devastated.<br/>You decide to land here and create the necessary conditions for planting the beacon.<br/>{command: Create “greenhouse effect” with the help of carbon dioxide}]]></description>
     <exit name="RandomExit2" alias="random direction" to="Earth orbit">
       <runscript />
       <visible type="boolean">false</visible>
@@ -226,7 +226,7 @@
     <room />
     <isroom />
     <beacon type="boolean">false</beacon>
-    <description><![CDATA[{img:images\Crab.jpg}<br/>BC: << Planet in Crab Nebula. An undistinguished type. >><br/>“They are so alike. Just the same picture each time. The picture of perfect nothingness”. The only thought that comes to your mind while observing the lifeless calmness of this planet. You decide to land and plant the beacon.<br/>BC: << Alert! The activity has been detected. 128 meters up North. >><br/>You feel that your ship is pushed with something outside. <br/>BC: << Alert! Alert! >><br/>BC shows you an image of a huge creature right ahead.<br/>{command: Try to escape from the monster}<br/>{command: Fight}]]></description>
+    <description><![CDATA[{img:Crab.jpg}<br/>BC: << Planet in Crab Nebula. An undistinguished type. >><br/>“They are so alike. Just the same picture each time. The picture of perfect nothingness”. The only thought that comes to your mind while observing the lifeless calmness of this planet. You decide to land and plant the beacon.<br/>BC: << Alert! The activity has been detected. 128 meters up North. >><br/>You feel that your ship is pushed with something outside. <br/>BC: << Alert! Alert! >><br/>BC shows you an image of a huge creature right ahead.<br/>{command: Try to escape from the monster}<br/>{command: Fight}]]></description>
     <exit name="RandomExit3" alias="random direction" to="Earth orbit">
       <runscript />
       <visible type="boolean">false</visible>
@@ -267,7 +267,7 @@
     <room />
     <isroom />
     <beacon type="boolean">false</beacon>
-    <description><![CDATA[{img:images\Eagle.jpg}<br/>BC: << Planet Bird. Eagle Nebula. Only mountains. >><br/>You’re scanning the relief of the planet. That was enough to recall the memories from your childhood. You don’t really remember these times, but you’re sure that this view is something that you saw each morning long years ago. Something homey and warm.<br/>You decide to land on the peak of the mountain. This place seems to be the most convenient to plant the beacon.<br/>{command: To Land}<br/>{command: Fly farther and find a steppe where you land the ship}]]></description>
+    <description><![CDATA[{img:Eagle.jpg}<br/>BC: << Planet Bird. Eagle Nebula. Only mountains. >><br/>You’re scanning the relief of the planet. That was enough to recall the memories from your childhood. You don’t really remember these times, but you’re sure that this view is something that you saw each morning long years ago. Something homey and warm.<br/>You decide to land on the peak of the mountain. This place seems to be the most convenient to plant the beacon.<br/>{command: To Land}<br/>{command: Fly farther and find a steppe where you land the ship}]]></description>
     <exit name="RandomExit4" alias="random direction" to="Earth orbit">
       <runscript />
       <visible type="boolean">false</visible>
@@ -308,7 +308,7 @@
     <room />
     <isroom />
     <beacon type="boolean">false</beacon>
-    <description><![CDATA[{img:images\HorseHead.jpg}<br/>BC: << Horse Head Nebula. Gas giant. Impossible to plant the beacon >><br/>Well, one more problem. You’re fully mixed-up. <br/>BC: << Do you need any help? >><br/>No, no, no. I should find the other planet.<br/>BC: << Impossible. If you’re going to explore something else you’ll be lack of fuel too fast. We don’t have any time for changing our route. >><br/>Any other variants? <br/>BC: << Satellite of this planet. >><br/>Anything else?<br/>BC: <<Orbit? >><br/>You flash on the fact that this is the only variant]]></description>
+    <description><![CDATA[{img:HorseHead.jpg}<br/>BC: << Horse Head Nebula. Gas giant. Impossible to plant the beacon >><br/>Well, one more problem. You’re fully mixed-up. <br/>BC: << Do you need any help? >><br/>No, no, no. I should find the other planet.<br/>BC: << Impossible. If you’re going to explore something else you’ll be lack of fuel too fast. We don’t have any time for changing our route. >><br/>Any other variants? <br/>BC: << Satellite of this planet. >><br/>Anything else?<br/>BC: <<Orbit? >><br/>You flash on the fact that this is the only variant]]></description>
     <exit name="RandomExit5" alias="random direction" to="Earth orbit">
       <runscript />
       <visible />
@@ -334,7 +334,7 @@
     <room />
     <isroom />
     <beacon type="boolean">false</beacon>
-    <description><![CDATA[{img:images\Orion.jpg}<br/>BC: « Orion Nebula. Asteroid field. » <br/>You’re trying to land the ship without smashing into asteroid. <br/>Success. <br/>BC: « Spectacular! I can be proud of you, sweetie.» <br/>Your BC can be too irritating sometimes. <br/>{command: “I’ll sell you on the nearest planet” }<br/><br/><br/>]]></description>
+    <description><![CDATA[{img:Orion.jpg}<br/>BC: « Orion Nebula. Asteroid field. » <br/>You’re trying to land the ship without smashing into asteroid. <br/>Success. <br/>BC: « Spectacular! I can be proud of you, sweetie.» <br/>Your BC can be too irritating sometimes. <br/>{command: “I’ll sell you on the nearest planet” }<br/><br/><br/>]]></description>
     <exit name="RandomExit6" alias="random direction" to="Earth orbit">
       <runscript />
       <visible type="boolean">false</visible>
@@ -367,7 +367,7 @@
     <room />
     <isroom />
     <beacon type="boolean">false</beacon>
-    <description><![CDATA[{img:images\PillarsOfCreation.jpg}<br/>BC: « Planet in Pillars Of Creation Nebula. You won’t believe it. Ocean! >><br/>You’re nervously making haste to the window. Water. Endless universe of amazing beauty. You feel a kind of sadness, missing of something important and great. Longing for home.<br/>BC: << You, I mean, people - you are so boring and sentimental. >><br/>- Come on, you was just the same when we were installing you into this system.<br/>BC: << That’s not so! I was in a bad condition, you know it. Bastard. >><br/>You sigh.<br/>In some minutes BC finds the place where you can plant the beacon but then you realize the existence of rational beings there. They have a brood in this place.<br/>{command: Convince them that the beacon won't cause damage and hurt the brood}<br/>{command: Find the other place }<br/><br/>]]></description>
+    <description><![CDATA[{img:PillarsOfCreation.jpg}<br/>BC: « Planet in Pillars Of Creation Nebula. You won’t believe it. Ocean! >><br/>You’re nervously making haste to the window. Water. Endless universe of amazing beauty. You feel a kind of sadness, missing of something important and great. Longing for home.<br/>BC: << You, I mean, people - you are so boring and sentimental. >><br/>- Come on, you was just the same when we were installing you into this system.<br/>BC: << That’s not so! I was in a bad condition, you know it. Bastard. >><br/>You sigh.<br/>In some minutes BC finds the place where you can plant the beacon but then you realize the existence of rational beings there. They have a brood in this place.<br/>{command: Convince them that the beacon won't cause damage and hurt the brood}<br/>{command: Find the other place }<br/><br/>]]></description>
     <exit name="RandomExit7" alias="random direction" to="Earth orbit">
       <runscript />
       <visible type="boolean">false</visible>
@@ -407,7 +407,7 @@
     <room />
     <isroom />
     <beacon type="boolean">false</beacon>
-    <description><![CDATA[{img:images\RedSpider.jpg}<br/>BC: « Planet Tarantula. Red Spider Nebula. Enjoy. >><br/>You can observe gorgeous and giant cities which are full of unbelievable buildings and sky-scrapers; the only one thing that affronts the eye is the image of empty streets and the oldness of everything.<br/>Then the swarm of automated drones appears nearby. Apparently they were the doom of this unfortunate civilization. They killed their own creators and waited here for millenia since. Now they have a new target. You.<br/>{command: Fight}<br/>{command: Try to escape}<br/>]]></description>
+    <description><![CDATA[{img:RedSpider.jpg}<br/>BC: « Planet Tarantula. Red Spider Nebula. Enjoy. >><br/>You can observe gorgeous and giant cities which are full of unbelievable buildings and sky-scrapers; the only one thing that affronts the eye is the image of empty streets and the oldness of everything.<br/>Then the swarm of automated drones appears nearby. Apparently they were the doom of this unfortunate civilization. They killed their own creators and waited here for millenia since. Now they have a new target. You.<br/>{command: Fight}<br/>{command: Try to escape}<br/>]]></description>
     <exit name="RandomExit8" alias="random direction" to="Earth orbit">
       <runscript />
       <visible type="boolean">false</visible>
@@ -454,7 +454,7 @@
     <room />
     <isroom />
     <beacon type="boolean">false</beacon>
-    <description><![CDATA[{img:images\TheLagoon.jpg}<br/>BC: « Planet Blue in Lagoon Nebula. Don’t you feel something strange?>><br/>Yeah, you’ve got some kind of discomfort in your body, especially head. Pain and entire tiredness. You fall asleep.<br/>...<br/>BC: <<GM, sweetie. Guess what?>><br/>- What?<br/>BC: << We’re lack of fuel. Somebody’s stolen it all>><br/>You use lots of offensive words to describe the situation.<br/>BC: <<Incoming call>><br/>You answer it and hear a familiar voice. He says: “Do you need any help?”. You respond “yep”. The calling guy offers some fuel in exchange for your help. You get to know that he was locked on this planet and has been living here for three years in complete loneliness. He asks you to talk to him. You agree and get your fuel back.<br/>After this you plant the beacon.<br/>{command: Leave this guy on the planet and fly away}<br/>{command: Help him to get out}]]></description>
+    <description><![CDATA[{img:TheLagoon.jpg}<br/>BC: « Planet Blue in Lagoon Nebula. Don’t you feel something strange?>><br/>Yeah, you’ve got some kind of discomfort in your body, especially head. Pain and entire tiredness. You fall asleep.<br/>...<br/>BC: <<GM, sweetie. Guess what?>><br/>- What?<br/>BC: << We’re lack of fuel. Somebody’s stolen it all>><br/>You use lots of offensive words to describe the situation.<br/>BC: <<Incoming call>><br/>You answer it and hear a familiar voice. He says: “Do you need any help?”. You respond “yep”. The calling guy offers some fuel in exchange for your help. You get to know that he was locked on this planet and has been living here for three years in complete loneliness. He asks you to talk to him. You agree and get your fuel back.<br/>After this you plant the beacon.<br/>{command: Leave this guy on the planet and fly away}<br/>{command: Help him to get out}]]></description>
     <exit name="RandomExit9" alias="random direction" to="Earth orbit">
       <runscript />
       <visible type="boolean">false</visible>
@@ -494,7 +494,7 @@
     <room />
     <isroom />
     <beacon type="boolean">false</beacon>
-    <description><![CDATA[{img:images\StarClusterInNGC3603.jpg}<br/>BC: « Planet in NGC3603. Look! Just look at this! >><br/>You screw up your eyes and turn short. The planet looks like the Earth just right to a tee. BC lands the ship. You are all adrift.<br/>When you make the first step outside you see the crowd of people. They meet you with greetings and you understand - this is your home.<br/>BC: << Are you sure?  >><br/>You cannot respond. You see your relatives are making haste towards you and you feel happiness. Maybe.<br/>BC: << I will wait you here. >><br/>Few hours later you find yourself sitting round the table and discussing your flight with your family. <br/>Somebody asks you: "Why didn't you help this guy?"<br/>{command: Don't pay any attention to the question.}<br/>{command: Getting shocked with the question because you haven't said anything about it.}]]></description>
+    <description><![CDATA[{img:StarClusterInNGC3603.jpg}<br/>BC: « Planet in NGC3603. Look! Just look at this! >><br/>You screw up your eyes and turn short. The planet looks like the Earth just right to a tee. BC lands the ship. You are all adrift.<br/>When you make the first step outside you see the crowd of people. They meet you with greetings and you understand - this is your home.<br/>BC: << Are you sure?  >><br/>You cannot respond. You see your relatives are making haste towards you and you feel happiness. Maybe.<br/>BC: << I will wait you here. >><br/>Few hours later you find yourself sitting round the table and discussing your flight with your family. <br/>Somebody asks you: "Why didn't you help this guy?"<br/>{command: Don't pay any attention to the question.}<br/>{command: Getting shocked with the question because you haven't said anything about it.}]]></description>
     <exit name="RandomExit10" alias="random direction" to="Earth orbit">
       <runscript />
       <visible type="boolean">false</visible>
@@ -532,7 +532,7 @@
   <object name="Home sweet home">
     <inherit name="editor_room" />
     <isroom type="boolean">false</isroom>
-    <description><![CDATA[{img:images\earth.jpg}<br/>Your great journey has ended. Welcome home, Captain!<br/>]]></description>
+    <description><![CDATA[{img:earth.jpg}<br/>Your great journey has ended. Welcome home, Captain!<br/>]]></description>
     <usedefaultprefix type="boolean">false</usedefaultprefix>
     <enter type="script">
       finish
